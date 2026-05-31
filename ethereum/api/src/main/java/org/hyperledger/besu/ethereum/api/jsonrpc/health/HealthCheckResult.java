@@ -1,5 +1,5 @@
 /*
- * Copyright ConsenSys AG.
+ * Copyright contributors to Besu.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -14,15 +14,8 @@
  */
 package org.hyperledger.besu.ethereum.api.jsonrpc.health;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class LivenessCheck implements HealthService.HealthCheck {
-  private static final Logger LOG = LoggerFactory.getLogger(LivenessCheck.class);
-
-  @Override
-  public HealthCheckResult check(final HealthService.ParamSource params) {
-    LOG.debug("Invoking liveness check.");
-    return HealthCheckResult.HEALTHY;
-  }
+public enum HealthCheckResult {
+  HEALTHY,
+  UNHEALTHY,
+  BAD_REQUEST
 }
